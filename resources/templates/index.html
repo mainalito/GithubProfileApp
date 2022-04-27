@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
+
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -13,7 +14,7 @@
 
 <body>
 	<nav class="navbar navbar-light bg-light justify-content-between">
-		<a class="navbar-brand">Github Profile App</a>
+		<a class="navbar-brand">GithubProfile App</a>
 		<form class="form-inline" th:action="@{/search}" method="GET">
 			<input class="form-control mr-sm-2" type="search" name="name" placeholder="Search" aria-label="Search">
 			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -38,7 +39,7 @@
 
 		<div class="card" style="width: 18rem;" th:each="repo: ${repos}">
 			<div class="card-body ">
-				<span class="badge badge-success" th:text=${repo.name}>Fifa</span>
+				<span class="badge badge-success" th:text=${repo.name}></span>
 			</div>
 
 
@@ -46,4 +47,46 @@
 	</div>
 </body>
 
+</html> -->
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Profile App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<link th:href="@{/style.css}" rel="stylesheet" />
+</head>
+<body>
+        <form th:action="@{/search}" method="GET">
+            <input type="search" name="name" id="" autocomplete="off" placeholder="Search a Github User">
+			<button type="submit">
+				<i class="fa fa-search" aria-hidden="true"></i>
+			</button>
+        </form>
+      <main>
+          <div class="container" th:each="user: ${users}">
+              <img th:src="${user.avatar_url}" alt="" srcset="">
+              <div class="side">
+                  <h1 th:href="${user.html_url}"  th:text="${user.name}"></h1>
+                  <p th:text="${user.bio}"></p>
+                  <ul>
+                      <li>Followers<strong th:text=${user.followers}></strong></li>
+                      <li>Following<strong th:text=${user.following} ></strong></li>
+					  <li>Repos<strong th:text="${#lists.size(total_repos)}"></strong></li>
+					</ul>
+					<div class="list" th:each="repo: ${repos}">
+                      <a href="#" th:href="${repo.url}" <span th:text="${repo.name}"> </span></a>
+                  </div>
+              </div>
+          </div>
+        </main>
+</body>
 </html>
