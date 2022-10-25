@@ -7,3 +7,5 @@
 ### Removed whitespaces from params query.
 >Best way to view someones github profile 😀
 >Available on [GithubProfileSearch](https://githubsearchprofilenames.herokuapp.com/)
+![image](https://user-images.githubusercontent.com/81359755/197789005-2ec256e7-e108-4bf5-a7fd-ea5a9f3b71ec.png)
+
